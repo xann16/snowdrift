@@ -1,0 +1,12 @@
+from snowdrift.core.stub import hello, answer
+import sys
+
+
+def main() -> int:
+    print("Snowdrift v0.1.0 - Work in progress!")
+    print(hello(answer()))
+    return 0
+
+
+if __file__ == "__main__":
+    sys.exit(main())

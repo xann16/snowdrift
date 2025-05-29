@@ -1,0 +1,9 @@
+[run]
+omit = src/snowdrift/cli/main.py
+branch = true
+
+[report]
+exclude_lines = [
+    "raise NotImplementedError",
+    "@overload"
+]

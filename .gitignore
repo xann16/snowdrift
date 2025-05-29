@@ -175,3 +175,6 @@ cython_debug/
 
 # uv specific
 .python-version
+
+# MacOS system files
+.DS_Store
