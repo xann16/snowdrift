@@ -1,0 +1,46 @@
+name: ci-doc
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  pdoc:
+    name: pdoc
+    runs-on: ubuntu-latest
+    needs: pre-commit
+    permissions:
+      contents: read
+      pages: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          version: '0.7.9'
+          enable-cahce: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Install dependencies
+        run: uv sync --locked --all-extras --dev
+
+      - name: Use pdoc to generate documentation
+        run: PDOC_ALLOW_EXEC=1 uv tool run pdoc -o html snowdrift
+
+      - name: Deploy documentation to GitHub Pages
+        if: github.ref == 'refs/heads/main'
+        uses: JamesIves/github-pages-deploy-action@4.1.1
+        with:
+          BRANCH: pdoc
+          FOLDER: html
+          CLEAN: true
