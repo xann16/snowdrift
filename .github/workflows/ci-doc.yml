@@ -1,9 +1,11 @@
 name: ci-doc
 on:
-  workflow_run:
-    workflows: ["ci-pre"]
-    types:
-      - completed
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
 
 jobs:
 
@@ -28,14 +30,12 @@ jobs:
         uses: astral-sh/setup-uv@v4
         with:
           version: '0.7.9'
-          enable-cache: true
-          cache-dependency-glob: "uv.lock"
 
       - name: Install dependencies
         run: uv sync --locked --all-extras --dev
 
       - name: Use pdoc to generate documentation
-        run: PDOC_ALLOW_EXEC=1 uv tool run pdoc -o html snowdrift
+        run: PDOC_ALLOW_EXEC=1 uv run pdoc -o html snowdrift
 
       - name: Deploy documentation to GitHub Pages
         if: github.ref == 'refs/heads/main'
