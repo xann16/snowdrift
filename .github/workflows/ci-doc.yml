@@ -1,15 +1,15 @@
 name: ci-doc
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["ci-pre"]
+    types:
+      - completed
 
 jobs:
 
   pdoc:
     name: pdoc
     runs-on: ubuntu-latest
-    needs: pre-commit
     permissions:
       contents: read
       pages: write
@@ -28,7 +28,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
         with:
           version: '0.7.9'
-          enable-cahce: true
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
 
       - name: Install dependencies

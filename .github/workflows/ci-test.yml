@@ -1,15 +1,14 @@
 name: ci-test
 on:
-  pull_request:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows: ["ci-pre"]
+    types:
+      - completed
 
 jobs:
 
   test:
     name: test
-    needs: pre-commit
     strategy:
       matrix:
         platform:
@@ -33,7 +32,7 @@ jobs:
         uses: astral-sh/setup-uv@v4
         with:
           version: '0.7.9'
-          enable-cahce: true
+          enable-cache: true
           cache-dependency-glob: "uv.lock"
 
       - name: Install dependencies
