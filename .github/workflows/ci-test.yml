@@ -39,14 +39,17 @@ jobs:
         run: uv sync --locked --all-extras --dev
 
       - name: Run tests with code coverage
-        run: uv run pytest --durations=10 --cov=src/snowdrift --cov-report=xml --cov-report=html
+        run: uv run pytest --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml
 
       - name: Upload coverage reports to Codecov
-        if: |
-          github.event_name == 'push' &&
-          github.ref == 'refs/heads/main' &&
-          ${{ matrix.platform == 'ubuntu-latest' }} &&
-          ${{ matrix.python-version == '3.9' }}
+        if:  ${{ matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.9' }}
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: ${{ format('Python {0}', matrix.python-version) }}

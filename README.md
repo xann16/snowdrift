@@ -1,6 +1,12 @@
 # snowdrift
 Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages.
 
+[![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
+
+# Links
+
+- [Documentation (Simple PyDoc dump ATM)](https://xann16.github.io/snowdrift/snowdrift.html)
+
 # Quick Dev Basics (WIP)
 
 Initial dev setup:

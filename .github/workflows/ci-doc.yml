@@ -40,6 +40,6 @@ jobs:
         if: github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
-          BRANCH: gh-pages
-          FOLDER: html
-          CLEAN: true
+          branch: gh-pages
+          folder: html
+          clean: true
