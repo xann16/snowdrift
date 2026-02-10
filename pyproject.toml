@@ -35,7 +35,7 @@ python_files = "*_test.py"
 addopts = "-ra -We"
 
 [tool.coverage.run]
-omit = "src/snowdrift/cli/main.py"
+omit = [ "src/snowdrift/cli/main.py" ]
 branch = true
 
 [tool.mypy]
