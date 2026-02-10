@@ -1,24 +1,28 @@
 name: ci-test
+
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 2'
+  release:
+    types: [ published ]
 
 jobs:
 
   test:
-    name: test
+    name: Testing
     strategy:
       matrix:
         platform:
           - ubuntu-latest
+          - ubuntu-24.04-arm
           - windows-latest
-          - macos-13         # arch: Intel
-          - macos-15         # arch: arm64
-        python-version: ['3.9', '3.10', '3.11', '3.12', '3.13']
+          - macos-15
+          - macos-15-intel
+        python-version: ['3.10', '3.11', '3.12', '3.13', '3.14']
       fail-fast: false
     runs-on: ${{ matrix.platform }}
     steps:
@@ -33,7 +37,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v4
         with:
-          version: '0.7.9'
+          version: '0.10.1'
 
       - name: Install dependencies
         run: uv sync --locked --all-extras --dev
@@ -42,14 +46,15 @@ jobs:
         run: uv run pytest --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml
 
       - name: Upload coverage reports to Codecov
-        if:  ${{ matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.9' }}
+        if:  ${{ matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.14' }}
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/test-results-action@v1
+        uses: codecov/codecov-action@v5
         with:
+          report-tytpe: test_results
           token: ${{ secrets.CODECOV_TOKEN }}
-          flags: ${{ format('Python {0}', matrix.python-version) }}
+          flags: ${{ format('Python {0}, {1}', matrix.python-version, matrix.platform) }}

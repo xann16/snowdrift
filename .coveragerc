@@ -1,3 +1,0 @@
-[run]
-omit = src/snowdrift/cli/main.py
-branch = true

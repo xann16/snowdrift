@@ -1,16 +1,19 @@
 name: ci-doc
+
 on:
-  pull_request:
-    branches:
-      - main
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 6 * * 2'
+  release:
+    types: [ published ]
 
 jobs:
 
   pdoc:
-    name: pdoc
+    name: Documentation
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -23,12 +26,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.14'
 
       - name: Install uv
         uses: astral-sh/setup-uv@v4
         with:
-          version: '0.7.9'
+          version: '0.10.1'
 
       - name: Install dependencies
         run: uv sync --locked --all-extras --dev
