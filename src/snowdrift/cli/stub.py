@@ -8,4 +8,4 @@ def hello(x: int) -> str:
 
 def answer() -> int:
     """Sample answer function to test that the module is working correctly."""
-    return 42
+    return 422
