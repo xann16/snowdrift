@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.platform }}
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -60,3 +60,4 @@ jobs:
           report_type: test_results
           token: ${{ secrets.CODECOV_TOKEN }}
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
+          flags: unit,${{ matrix.platform }},py${{ matrix.python-version }}
