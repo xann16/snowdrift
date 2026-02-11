@@ -1,5 +1,6 @@
 [project]
 name = "snowdrift"
+#dynamic = [ "version" ]
 version = "0.1.0"
 description = "Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages"
 readme = "README.md"
@@ -12,14 +13,32 @@ requires-python = ">=3.10"
 dependencies = []
 
 [project.urls]
-repository = "https://github.com/xann16/snowdrift"
+Homepage = "https://github.com/xann16/snowdrift"
+Documentation = "https://xann16.github.io/snowdrift"
+Repository = "https://github.com/xann16/snowdrift"
+Issues = "https://github.com/xann16/snowdrift/issues"
+Changelog = "https://github.com/xann16/snowdrift/releases"
+
+# TODO: classifiers -  https://pypi.org/classifiers/
 
 [project.scripts]
 snowdrift = "snowdrift.cli.main:main"
 
 [build-system]
+#requires = ["hatchling", "uv-dynamic-versioning"]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+#[tool.hatch.version]
+#source = "uv-dynamic-versioning"
+
+#[tool.uv-dynamic-versioning]
+#vcs = "git"
+#style = "pep440"
+#bump = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/snowdrift"]
 
 [dependency-groups]
 dev = [
@@ -46,8 +65,8 @@ pretty = true
 force_union_syntax = true
 
 [tool.ruff]
-line-length = 120
-target-version = "py39"
+line-length = 100
+target-version = "py314"
 include = ["src/**/*.py", "tests/**/*.py"]
 
 [tool.ruff.format]
@@ -128,8 +147,8 @@ extend-select = [
     "DOC",  # Pydoclint - docstring linting and consistency
 ]
 ignore = [
-    "D203",  # Pydocstyle - Checks for blank line before class docstring (insead use D211 - no blank line ensured)
-    "D213",  # Pydocstyle - Checks for blank line after class docstring (insead use D212 - no blank line ensured)
+    "D203",  # Pydocstyle - Checks for blank line before class docstring (instead use D211 - no blank line ensured)
+    "D213",  # Pydocstyle - Checks for blank line after class docstring (instead use D212 - no blank line ensured)
     "D401",  # Pydocstyle - Checks for docstring first lines that are not in an imperative mood.
     "COM812", # Flake8-commas - Unnecessary trailing comma check (already enforced by formatter)
     # "S311",  # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
@@ -142,3 +161,12 @@ ignore = [
     "INP001",  # implicit namespaces are ok for tests
     "PLR2004", # magic numbers are ok in tests
 ]
+
+
+### TEMPORARY PUBLISHING SETUP FOR TESTIONG on testpypi ###
+### remember to remove flag from ci-pub.yml as well.    ###
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true

@@ -30,22 +30,24 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          fetch-depth: 0 # Important for versioning plugins
 
       - name: Install uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v7
         with:
           version: '0.10.1'
+          enable-cache: true
+          python-version: ${{ matrix.python-version }}
+
+      - name: Setup Python (using uv)
+        run: uv python install
 
       - name: Install dependencies
         run: uv sync --locked --all-extras --dev
 
       - name: Run tests with code coverage
-        run: uv run pytest --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
+        run: uv run --frozen pytest --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
       - name: Upload coverage reports to Codecov
         if:  ${{ matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.14' }}
