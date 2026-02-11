@@ -1,7 +1,6 @@
 [project]
 name = "snowdrift"
-#dynamic = [ "version" ]
-version = "0.1.0"
+dynamic = [ "version" ]
 description = "Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages"
 readme = "README.md"
 license = "MIT"
@@ -25,17 +24,16 @@ Changelog = "https://github.com/xann16/snowdrift/releases"
 snowdrift = "snowdrift.cli.main:main"
 
 [build-system]
-#requires = ["hatchling", "uv-dynamic-versioning"]
-requires = ["hatchling"]
+requires = ["hatchling", "uv-dynamic-versioning"]
 build-backend = "hatchling.build"
 
-#[tool.hatch.version]
-#source = "uv-dynamic-versioning"
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
 
-#[tool.uv-dynamic-versioning]
-#vcs = "git"
-#style = "pep440"
-#bump = true
+[tool.uv-dynamic-versioning]
+vcs = "git"
+style = "semver"
+bump = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/snowdrift"]
