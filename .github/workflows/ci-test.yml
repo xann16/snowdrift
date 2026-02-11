@@ -60,4 +60,3 @@ jobs:
           report_type: test_results
           token: ${{ secrets.CODECOV_TOKEN }}
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
-          flags: unit,${{ matrix.platform }},py${{ matrix.python-version }}
