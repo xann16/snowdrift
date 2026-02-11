@@ -5,7 +5,7 @@ Python package for generating optimized settings handlers (especially for HPC us
 
 # Links
 
-- [Documentation (Simple PyDoc dump ATM)](https://xann16.github.io/snowdrift/snowdrift.html)
+- [Documentation (Simple PyDoc dump ATM)](https://xann16.github.io/snowdrift/)
 
 # Quick Dev Basics (WIP)
 
