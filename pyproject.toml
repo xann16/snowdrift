@@ -45,7 +45,8 @@ packages = ["src/snowdrift"]
 
 [dependency-groups]
 dev = [
-    "pdoc>=15.0.3",
+    "sphinx>=8.0.0",
+    "sphinx-rtd-theme>=3.1",
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
@@ -72,6 +73,7 @@ force_union_syntax = true
 line-length = 120
 target-version = "py314"
 include = ["src/**/*.py", "tests/**/*.py"]
+exclude = ["docs/"]
 
 [tool.ruff.format]
 docstring-code-format = true

@@ -15,7 +15,6 @@ repos:
   rev: 0.10.1
   hooks:
     - id: uv-lock
-    - id: uv-export
 - repo: http://github.com/astral-sh/ruff-pre-commit
   rev: v0.11.12
   hooks:
@@ -25,6 +24,7 @@ repos:
   rev: v1.16.0
   hooks:
     - id: mypy
+      exclude: docs/
 - repo: https://github.com/codespell-project/codespell
   rev: v2.4.1
   hooks:

@@ -1,6 +1,6 @@
 """Tests for snowdrift.breeze.stub."""
 
-from snowdrift.breeze.stub import answer, hello
+from snowdrift.breeze.stub import AnswerBox, hello
 
 
 def test_hello() -> None:
@@ -10,4 +10,9 @@ def test_hello() -> None:
 
 def test_answer() -> None:
     """Test the answer function."""
-    assert answer() == 42
+    assert AnswerBox().answer() == 42
+
+
+def test_answer_par() -> None:
+    """Test the answer function."""
+    assert AnswerBox(answer=100).answer() == 100
