@@ -26,7 +26,7 @@ jobs:
       fail-fast: false
     runs-on: ${{ matrix.platform }}
     permissions:
-      contents: read
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -54,8 +54,9 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
         uses: codecov/codecov-action@v5
         with:
           report_type: test_results
           token: ${{ secrets.CODECOV_TOKEN }}
+          name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
