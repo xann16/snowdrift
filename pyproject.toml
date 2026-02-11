@@ -162,12 +162,3 @@ ignore = [
     "INP001",  # implicit namespaces are ok for tests
     "PLR2004", # magic numbers are ok in tests
 ]
-
-
-### TEMPORARY PUBLISHING SETUP FOR TESTIONG on testpypi ###
-### remember to remove flag from ci-pub.yml as well.    ###
-[[tool.uv.index]]
-name = "testpypi"
-url = "https://test.pypi.org/simple/"
-publish-url = "https://test.pypi.org/legacy/"
-explicit = true
