@@ -1,0 +1,32 @@
+﻿snowdrift.cli
+=============
+
+.. automodule:: snowdrift.cli
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   main
+   stub
+

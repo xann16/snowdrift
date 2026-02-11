@@ -1,0 +1,31 @@
+snowdrift.config.stub
+=====================
+
+.. automodule:: snowdrift.config.stub
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      answer
+      hello
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

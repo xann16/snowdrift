@@ -1,0 +1,6 @@
+snowdrift.cli.main.main
+=======================
+
+.. currentmodule:: snowdrift.cli.main
+
+.. autofunction:: main

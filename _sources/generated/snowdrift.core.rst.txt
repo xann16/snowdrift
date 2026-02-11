@@ -1,0 +1,31 @@
+﻿snowdrift.core
+==============
+
+.. automodule:: snowdrift.core
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :recursive:
+
+   stub
+
