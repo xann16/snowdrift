@@ -4,6 +4,7 @@ dynamic = [ "version" ]
 description = "Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages"
 readme = "README.md"
 license = "MIT"
+license-files = [ "LICENSE" ]
 authors = [
     { name = "Maciej Manna", email = "maciejmanna@gmail.com" }
 ]
@@ -19,6 +20,7 @@ Issues = "https://github.com/xann16/snowdrift/issues"
 Changelog = "https://github.com/xann16/snowdrift/releases"
 
 # TODO: classifiers -  https://pypi.org/classifiers/
+# TODO: keywords = []
 
 [project.scripts]
 snowdrift = "snowdrift.cli.main:main"
@@ -47,6 +49,7 @@ dev = [
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
+    "deptry>=0.24.0"
 ]
 
 [tool.pytest.ini_options]
@@ -66,7 +69,7 @@ pretty = true
 force_union_syntax = true
 
 [tool.ruff]
-line-length = 100
+line-length = 120
 target-version = "py314"
 include = ["src/**/*.py", "tests/**/*.py"]
 
@@ -161,4 +164,9 @@ ignore = [
     "S101",    # asserts allowed to be in tests
     "INP001",  # implicit namespaces are ok for tests
     "PLR2004", # magic numbers are ok in tests
+]
+
+[tool.deptry]
+ignore = [
+    "DEP003", # Ignore transitive dependencies (prefer absolute import paths, according to TID252)
 ]

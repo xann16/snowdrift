@@ -31,7 +31,7 @@ uv run pytest --cov=src/snowdrift --cov-report html
 Manually running `pre-commit` checks (including `ruff` linting / formatting and `mymp` type checking):
 
 ```shell
-uv run pre-commit run -a
+uv run pre-commit run -a --hook-stage manual
 ```
 
 Running snowdrift CLI:

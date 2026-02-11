@@ -40,4 +40,4 @@ jobs:
         run: uv run --frozen pre-commit install --install-hooks
 
       - name: Run pre-commit hooks
-        run: uv run --frozen pre-commit run --all-files --show-diff-on-failure
+        run: uv run --frozen pre-commit run --all-files --hook-stage manual --show-diff-on-failure

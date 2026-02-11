@@ -2,12 +2,13 @@
 
 import sys
 
+from snowdrift import __version__
 from snowdrift.core.stub import answer, hello
 
 
 def main() -> int:
     """Main function for the snowdrift CLI."""
-    print('Snowdrift v0.1.0 - Work in progress!')
+    print(f'Snowdrift v{__version__} - Work in progress!')
     print(hello(answer()))
     return 0
 
