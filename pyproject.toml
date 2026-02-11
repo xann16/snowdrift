@@ -35,6 +35,9 @@ vcs = "git"
 style = "semver"
 bump = true
 
+[tool.uv]
+cache-keys = [{ file = "pyproject.toml" }, { git = { commit = true, tags = true }}] # make cache aware of dynamic versioning
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/snowdrift"]
 
