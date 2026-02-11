@@ -28,6 +28,7 @@ extensions = [
     'sphinx.ext.autodoc',  # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html
     'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
+    "sphinx.ext.githubpages",  # creates .nojekyll in the output to discover static assets
 ]
 
 templates_path = ['_templates']
