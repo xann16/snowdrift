@@ -33,10 +33,10 @@ repos:
 - repo: https://github.com/codespell-project/codespell
   rev: v2.4.1
   hooks:
-  - id: codespell
+    - id: codespell
 - repo: https://github.com/fpgmaas/deptry.git
   rev: "0.24.0"
   hooks:
     - id: deptry
-      stages: [ manual ] # requires venv (i.e. run using uv), so it is not convenient on commit
+      stages: [ manual ] # requires venv (i.e. run using uv), so it is not convenient as actual hook
       args: [ --extend-exclude, conftest.py ]

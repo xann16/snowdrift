@@ -3,11 +3,20 @@ Python package for generating optimized settings handlers (especially for HPC us
 
 [![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
 
+# IMPORTANT - Project in Initial Development
+
+This project is in initial stages of active development and has not yet achieved even minimal functionality. Please refrain from installing it at this point. If You are interested, however, please read short plan and rationale behind it below, and provide Your feedback, ideas, or feature requests by [submitting an issue](https://xann16.github.io/snowdrift/).
+
+THe idea behind `snowdrift` is to provide a generator that could convert simple description into a fully functioning configuration that could work in two different contests: setup and execution. This is inspired by the use case of many research, scientific or any other high-throughput (for HPC applications) software that has distinct setup (and cleanup) phase that has minimal impact on the entire run time, as well as execution phase which is highly optimized and runs for the most of the time with preset conditions. Such generated configuration could be freely and easily manipulated during setup, loaded from different common formats (JSON, YAML, TOML, XML, INI) or easily shared with other processes (e.g. via MPI). After necessary setup, such configuration could be converted to a highly performant, cache-friendly, and immutable (for both performance and safety) version usable during execution phase. The initial set of supported languages include compiled-languages common in HPC contexts - C, C++, and Fortran, as well as Python and Julia. Later, extensions to other languages are possible. More specific ideas will be made available here during the initial development stage.
+
+
 # Links
 
-- [Documentation (Simple PyDoc dump ATM)](https://xann16.github.io/snowdrift/)
+- [Documentation (Testing + Simple Full API Docstring-based Dump)](https://xann16.github.io/snowdrift/)
 
 # Quick Dev Basics (WIP)
+
+(TODO: Update)
 
 Initial dev setup:
 
