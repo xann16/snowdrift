@@ -9,6 +9,29 @@ authors = [
     { name = "Maciej Manna", email = "maciejmanna@gmail.com" }
 ]
 
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Software Development :: Code Generators"
+]
+keywords = [
+    "Code Generation",
+    "Settings",
+    "Parameters",
+    "High-Performance Computing",
+    "HPC"
+]
+
 requires-python = ">=3.10"
 dependencies = []
 
@@ -18,9 +41,6 @@ Documentation = "https://xann16.github.io/snowdrift"
 Repository = "https://github.com/xann16/snowdrift"
 Issues = "https://github.com/xann16/snowdrift/issues"
 Changelog = "https://github.com/xann16/snowdrift/releases"
-
-# TODO: classifiers -  https://pypi.org/classifiers/
-# TODO: keywords = []
 
 [project.scripts]
 snowdrift = "snowdrift.cli.main:main"
@@ -50,13 +70,14 @@ dev = [
     "pre-commit>=4.2.0",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
+    "sybil[pytest]>=9.3.0",
     "deptry>=0.24.0"
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
+testpaths = ["tests", "src", "README.md", "docs/source"]
 python_files = "*_test.py"
-addopts = "-ra -We"
+addopts = "-ra -We -p no:doctest"
 
 [tool.coverage.run]
 omit = [ "src/snowdrift/cli/main.py" ]
@@ -73,7 +94,6 @@ force_union_syntax = true
 line-length = 120
 target-version = "py314"
 include = ["src/**/*.py", "tests/**/*.py"]
-exclude = ["docs/"]
 
 [tool.ruff.format]
 docstring-code-format = true

@@ -39,3 +39,10 @@ Running snowdrift CLI:
 ```shell
 uv run snowdrift
 ```
+
+### Testing `sybil`
+
+```python
+x = 2
+assert x == 2
+```

@@ -31,3 +31,9 @@ API Reference
    snowdrift.common
    snowdrift.config
    snowdrift.core
+
+
+.. code-block:: python
+
+   x = 2
+   assert x == 2

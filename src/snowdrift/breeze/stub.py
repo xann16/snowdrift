@@ -2,7 +2,25 @@
 
 
 def hello(x: int) -> str:
-    """Sample hello function to test that the module is working correctly."""
+    """Sample hello function to test that the module is working correctly.
+
+    .. code-block:: python
+
+        x = 2
+        assert x == 2
+
+    Failing example:
+
+    >>> print(5 + 7)
+    12
+
+    .. doctest::
+
+        >>> print(1 + 7)
+        8
+
+
+    """
     return f'Hello from breeze! The answer is {x}!'
 
 

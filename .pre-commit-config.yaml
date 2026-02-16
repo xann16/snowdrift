@@ -1,3 +1,5 @@
+default_stages: [ pre-push, manual ]
+
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v5.0.0
@@ -19,12 +21,14 @@ repos:
   rev: v0.11.12
   hooks:
     - id: ruff-check
+      files: ^(?:src|tests)/.*\\.py$
     - id: ruff-format
+      files: ^(?:src|tests)/.*\\.py$
 - repo: http://github.com/pre-commit/mirrors-mypy
   rev: v1.16.0
   hooks:
     - id: mypy
-      exclude: docs/
+      files: ^(?:src|tests)/.*\\.py$
 - repo: https://github.com/codespell-project/codespell
   rev: v2.4.1
   hooks:
@@ -33,4 +37,5 @@ repos:
   rev: "0.24.0"
   hooks:
     - id: deptry
-      stages: [manual] # requires venv (i.e. run using uv), so it is not convenient on commit
+      stages: [ manual ] # requires venv (i.e. run using uv), so it is not convenient on commit
+      args: [ --extend-exclude, conftest.py ]

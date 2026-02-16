@@ -1,0 +1,30 @@
+name: 'Setup Python project with uv'
+description: 'Bundled project setup steps: installing Python, uv, and dependencies'
+inputs:
+  python-version:
+    description: 'Version of Python to use'
+    required: false
+    default: '3.14'
+  uv-version:
+    description: 'Version of uv to install'
+    required: false
+    default: '0.10.1'
+  enable-cache:
+    description: "Enable built-in cache for uv-setup action"
+    required: false
+    default: true
+runs:
+  using: "composite"
+  steps:
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        version: ${{ inputs.uv-version }}
+        enable-cache: ${{ inputs.enable-cache }}
+        python-version: ${{ inputs.python-version }}
+
+    - name: Setup Python (using uv)
+      run: uv python install
+
+    - name: Install dependencies (using uv)
+      run: uv sync --locked --all-extras --dev
