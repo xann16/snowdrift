@@ -46,6 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../usage.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#pytest-codeblock-testing"><code class="docutils literal notranslate"><span class="pre">pytest-codeblock</span></code> Testing</a></li>
 </ul>
 </li>
 </ul>
@@ -190,6 +191,19 @@
 <dt class="sig sig-object py" id="snowdrift.breeze.stub.hello">
 <span class="sig-prename descclassname"><span class="pre">snowdrift.breeze.stub.</span></span><span class="sig-name descname"><span class="pre">hello</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#snowdrift.breeze.stub.hello" title="Link to this definition"></a></dt>
 <dd><p>Sample hello function to test that the module is working correctly.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Failing example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">12</span>
+</pre></div>
+</div>
+<div class="highlight-pycon notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span>
+<span class="go">8</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>int</em>)</p>
