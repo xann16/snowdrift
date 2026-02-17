@@ -1,6 +1,0 @@
-snowdrift.common.stub.answer
-============================
-
-.. currentmodule:: snowdrift.common.stub
-
-.. autofunction:: answer

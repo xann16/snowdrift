@@ -1,6 +1,0 @@
-snowdrift.cli.stub.answer
-=========================
-
-.. currentmodule:: snowdrift.cli.stub
-
-.. autofunction:: answer

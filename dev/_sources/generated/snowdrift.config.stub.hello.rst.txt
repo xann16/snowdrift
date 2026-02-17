@@ -1,6 +1,0 @@
-snowdrift.config.stub.hello
-===========================
-
-.. currentmodule:: snowdrift.config.stub
-
-.. autofunction:: hello

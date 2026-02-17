@@ -1,6 +1,0 @@
-snowdrift.code\_writer.stub.hello
-=================================
-
-.. currentmodule:: snowdrift.code_writer.stub
-
-.. autofunction:: hello
