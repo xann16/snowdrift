@@ -2,10 +2,10 @@
 
 [![Supported Python Versions](https://badges.ws/pypi/python/snowdrift.svg)](https://devguide.python.org/versions/)
 [![License](https://badges.ws/github/l/xann16/snowdrift.svg)](https://opensource.org/licenses/MIT)
-[![Supported Python Versions](https://badges.ws/pypi/status/snowdrift.svg)](https://devguide.python.org/versions/)
+[![Development Status](https://badges.ws/pypi/status/snowdrift.svg)](https://github.com/xann16/snowdrift)
 [![PyPI Package Version](https://badge.fury.io/py/snowdrift.svg)](https://pypi.org/project/snowdrift)
 [![Maintenance Status](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xann16/snowdrift/graphs/commit-activity)
-[![Last Commit](https://badges.ws/github/last-commit/xann16/snowdrift.svg)](https://opensource.org/licenses/MIT)
+[![Last Commit](https://badges.ws/github/last-commit/xann16/snowdrift.svg)](https://github.com/xann16/snowdrift/graphs/commit-activity)
 [![Github Actions Status](https://github.com/xann16/snowdrift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xann16/snowdrift/actions/workflows/ci.yml)
 [![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
 
