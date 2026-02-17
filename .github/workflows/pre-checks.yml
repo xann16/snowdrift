@@ -6,7 +6,7 @@ on:
 jobs:
 
   pre-commit:
-    name: Pre-commit checks (linting, formatting, etc.)
+    name: Pre-commit checks
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,7 +21,7 @@ jobs:
         id: dep-setup
         uses: ./.github/actions/project-setup
 
-      - name: Caching pre-commit installed hooks
+      - name: Cache pre-commit installed hooks
         uses: actions/cache@v4
         with:
           path: ~/.cache/pre-commit

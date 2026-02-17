@@ -17,12 +17,18 @@ jobs:
     name: init
     uses: ./.github/workflows/pre-checks.yml
 
-  extra-checks:
-    name: xtra
-    needs: pre-checks
-    uses: ./.github/workflows/extra-checks.yml
-
   tests:
     name: test
     needs: pre-checks
     uses: ./.github/workflows/tests.yml
+
+  extra-checks:
+    name: extra
+    needs: pre-checks
+    uses: ./.github/workflows/extra-checks.yml
+
+  publish:
+    name: pub
+    needs: [ tests, extra-checks ]
+    if: ${{ github.event_name == 'release' }}
+    uses: ./.github/workflows/publish.yml

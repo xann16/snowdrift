@@ -1,4 +1,4 @@
-name: ci-test
+name: tests
 
 on:
   workflow_call:
@@ -25,7 +25,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Important for versioning plugins
+          fetch-depth: 0
 
       - name: Setup project dependencies
         uses: ./.github/actions/project-setup
