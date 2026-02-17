@@ -14,5 +14,8 @@ on:
 jobs:
 
   pre-checks:
-    name: Initial checks (linting, formatting, etc.)
     uses: ./.github/workflows/pre-checks.yml
+
+  extra-checks:
+    needs: pre-checks
+    uses: ./.github/workflows/extra-checks.yml

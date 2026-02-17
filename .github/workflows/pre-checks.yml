@@ -6,7 +6,7 @@ on:
 jobs:
 
   pre-commit:
-    name: Initial Checks
+    name: Initial Checks (linting, formatting, etc.)
     runs-on: ubuntu-latest
     permissions:
       contents: read
