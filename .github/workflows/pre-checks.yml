@@ -1,7 +1,7 @@
 name: pre-checks
 
 on:
-  workflow_dispatch:
+  workflow_call:
 
 jobs:
 
