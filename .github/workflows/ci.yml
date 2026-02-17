@@ -42,3 +42,11 @@ jobs:
       contents: read
       id-token: write
     secrets: inherit
+
+  docs:
+    name: docs
+    needs: pub
+    if: needs.pub.result == 'success' || needs.pub.result == 'skipped'
+    uses: ./.github/workflows/docs.yml
+    permissions:
+      contents: write

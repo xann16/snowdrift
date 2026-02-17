@@ -9,6 +9,7 @@
 import sys
 import os
 from pathlib import Path
+import snowdrift
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 sys.path.insert(0, os.path.abspath('../../src/snowdrift'))
@@ -18,13 +19,12 @@ sys.path.insert(0, os.path.abspath('../../src/snowdrift'))
 project = 'snowdrift'
 copyright = '2026, Maciej Manna'
 author = 'Maciej Manna'
-release = '0.1.1'
+release = snowdrift.__version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx.ext.doctest',  # https://www.sphinx-doc.org/en/master/tutorial/describing-code.html
     'sphinx.ext.autodoc',  # https://www.sphinx-doc.org/en/master/tutorial/automatic-doc-generation.html
     'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
@@ -47,5 +47,6 @@ html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'collapse_navigation': False,  # Keep the navigation sidebar expanded
     'navigation_depth': 4,  # Set the depth of the navigation sidebar
+    'display_version': True
 }
 html_static_path = ['_static']

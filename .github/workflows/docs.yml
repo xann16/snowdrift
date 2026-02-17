@@ -1,33 +1,27 @@
-name: ci-doc
+name: docs
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 6 * * 2'
-  release:
-    types: [ published ]
+  workflow_call:
 
 jobs:
 
-  pdoc:
-    name: Documentation
+  build-and-upload-docs:
+    name: Build and upload docs
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           persist-credentials: false
-          fetch-depth: 0 # Important for versioning plugins
+          fetch-depth: 0
 
       - name: Setup project dependencies
         uses: ./.github/actions/project-setup
 
-      - name: Use sphinx to generate HTML documentation
+      - name: Generate HTML documentation using Sphinx
         run: uv run sphinx-build -M html docs/source/ docs/build/
 
       - name: Deploy documentation to GitHub Pages
