@@ -32,4 +32,6 @@ jobs:
     needs: [ tests, extra-checks ]
     if: ${{ github.event_name == 'release' }}
     uses: ./.github/workflows/publish.yml
+    permissions:
+      id-token: write
     secrets: inherit
