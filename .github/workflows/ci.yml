@@ -16,8 +16,8 @@ jobs:
   pre-checks:
     name: init
     uses: ./.github/workflows/pre-checks.yml
-#    permissions:
-#      contents: read
+    permissions:
+      contents: read
 
   tests:
     name: test
