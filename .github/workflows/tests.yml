@@ -1,19 +1,12 @@
 name: ci-test
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  schedule:
-    - cron: '0 6 * * 2'
-  release:
-    types: [ published ]
+  workflow_call:
 
 jobs:
 
   test:
-    name: Testing
+    name: Tests
     strategy:
       matrix:
         platform:
@@ -28,6 +21,7 @@ jobs:
     permissions:
       contents: read
     steps:
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
@@ -41,13 +35,13 @@ jobs:
       - name: Run tests with code coverage
         run: uv run --frozen pytest --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
-      - name: Upload coverage reports to Codecov
+      - name: Upload coverage reports to Codecov.io
         if:  ${{ matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.14' }}
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Upload test results to Codecov
+      - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
         uses: codecov/codecov-action@v5
         with:

@@ -6,11 +6,12 @@ on:
 jobs:
 
   pre-commit:
-    name: Initial Checks (linting, formatting, etc.)
+    name: Pre-commit checks (linting, formatting, etc.)
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
+
       - name: Checkout project code
         uses: actions/checkout@v4
         with:

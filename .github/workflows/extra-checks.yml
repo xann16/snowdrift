@@ -6,16 +6,19 @@ on:
 jobs:
 
   url-check:
-    name: Verify URLs
+    name: URL checks
     runs-on: ubuntu-latest
     permissions:
       contents: read
     steps:
+
       - name: Checkout project code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: urlstechie/urlchecker-action@master
+
+      - name: Verify URLs found in project files
+        uses: urlstechie/urlchecker-action@master
         with:
           file_types: .md,.rst,.py,.json,.yaml,.yml,.toml,.txt
           print_all: false

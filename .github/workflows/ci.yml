@@ -14,8 +14,15 @@ on:
 jobs:
 
   pre-checks:
+    name: init
     uses: ./.github/workflows/pre-checks.yml
 
   extra-checks:
+    name: xtra
     needs: pre-checks
     uses: ./.github/workflows/extra-checks.yml
+
+  tests:
+    name: test
+    needs: pre-checks
+    uses: ./.github/workflows/tests.yml
