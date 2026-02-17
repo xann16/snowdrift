@@ -31,7 +31,9 @@ jobs:
     needs: pre-checks
     uses: ./.github/workflows/extra-checks.yml
     permissions:
+      actions: read
       contents: read
+      security-events: write
 
   publish:
     name: pub
