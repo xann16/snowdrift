@@ -45,8 +45,8 @@ jobs:
 
   docs:
     name: docs
-    needs: pub
-    if: needs.pub.result == 'success' || needs.pub.result == 'skipped'
+    needs: publish
+    if: needs.publish.result == 'success' || needs.publish.result == 'skipped'
     uses: ./.github/workflows/docs.yml
     permissions:
       contents: write
