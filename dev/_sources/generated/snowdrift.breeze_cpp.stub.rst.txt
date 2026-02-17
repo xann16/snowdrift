@@ -1,0 +1,31 @@
+snowdrift.breeze\_cpp.stub
+==========================
+
+.. automodule:: snowdrift.breeze_cpp.stub
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      answer
+      hello
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

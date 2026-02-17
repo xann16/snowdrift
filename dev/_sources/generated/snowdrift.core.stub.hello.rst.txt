@@ -1,0 +1,6 @@
+snowdrift.core.stub.hello
+=========================
+
+.. currentmodule:: snowdrift.core.stub
+
+.. autofunction:: hello

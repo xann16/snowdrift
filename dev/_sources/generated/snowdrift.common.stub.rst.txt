@@ -1,0 +1,31 @@
+snowdrift.common.stub
+=====================
+
+.. automodule:: snowdrift.common.stub
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      answer
+      hello
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
