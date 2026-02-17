@@ -2,8 +2,6 @@ name: publish
 
 on:
   workflow_call:
-    permissions:
-      id-token: write
 
 jobs:
 
