@@ -26,7 +26,7 @@ jobs:
 
       - name: Deploy documentation to GitHub Pages
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: JamesIves/github-pages-deploy-action@4.8
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
           folder: docs/build/html
 #          target-folder: ${{ github.event_name == 'release' && '.' || './dev' }}
