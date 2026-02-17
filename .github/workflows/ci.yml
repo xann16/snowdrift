@@ -15,4 +15,4 @@ jobs:
 
   pre-checks:
     name: Initial checks (linting, formatting, etc.)
-    uses: ./.github/workflows/pre-checks@main
+    uses: ./.github/workflows/pre-checks
