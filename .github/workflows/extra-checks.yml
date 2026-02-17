@@ -8,8 +8,8 @@ jobs:
   url-check:
     name: URL checks
     runs-on: ubuntu-latest
-#    permissions:
-#      contents: read
+    permissions:
+      contents: read
     steps:
 
       - name: Checkout project code
