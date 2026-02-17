@@ -1,0 +1,33 @@
+name: pre-checks
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  pre-commit:
+    name: Initial Checks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout project code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup project dependencies
+        id: dep-setup
+        uses: ./.github/actions/project-setup@main
+
+      - name: Caching pre-commit installed hooks
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-pre-commit-py${{ steps.dep-setup.outputs.python-version }}-${{ hashFiles('./.pre-commit-config.yaml') }}
+
+      - name: Install pre-commit and respective hooks
+        run: uv run --frozen pre-commit install --install-hooks
+
+      - name: Run pre-commit hooks
+        run: uv run --frozen pre-commit run --all-files --hook-stage manual --show-diff-on-failure
