@@ -9,7 +9,6 @@
 [![Github Actions Status](https://github.com/xann16/snowdrift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xann16/snowdrift/actions/workflows/ci.yml)
 [![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
 
----
 
 Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages.
 
