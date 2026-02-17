@@ -1,6 +1,0 @@
-snowdrift.breeze\_cpp.stub.answer
-=================================
-
-.. currentmodule:: snowdrift.breeze_cpp.stub
-
-.. autofunction:: answer
