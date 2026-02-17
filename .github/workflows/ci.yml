@@ -16,16 +16,22 @@ jobs:
   pre-checks:
     name: init
     uses: ./.github/workflows/pre-checks.yml
+    permissions:
+      contents: read
 
   tests:
     name: test
     needs: pre-checks
     uses: ./.github/workflows/tests.yml
+    permissions:
+      contents: read
 
   extra-checks:
     name: extra
     needs: pre-checks
     uses: ./.github/workflows/extra-checks.yml
+    permissions:
+      contents: read
 
   publish:
     name: pub
@@ -33,6 +39,6 @@ jobs:
     if: ${{ github.event_name == 'release' }}
     uses: ./.github/workflows/publish.yml
     permissions:
-      id-token: write
       contents: read
+      id-token: write
     secrets: inherit
