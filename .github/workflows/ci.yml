@@ -36,7 +36,10 @@ jobs:
   publish:
     name: pub
     needs: [ tests, extra-checks ]
-    if: ${{ github.event_name == 'release' }}
+    if: |
+      github.ref == 'refs/heads/main' &&
+      github.repository == 'xann16/snowdrift' &&
+      github.event_name == 'release'
     uses: ./.github/workflows/publish.yml
     permissions:
       contents: read
@@ -46,7 +49,10 @@ jobs:
   docs:
     name: docs
     needs: publish
-    if: always() && ( needs.publish.result == 'success' || needs.publish.result == 'skipped' )
+    if: |
+      always() &&
+      github.ref == 'refs/heads/main' &&
+      ( needs.publish.result == 'success' || ( github.event_name != 'release' && needs.publish.result == 'skipped' ) )
     uses: ./.github/workflows/docs.yml
     permissions:
       contents: write

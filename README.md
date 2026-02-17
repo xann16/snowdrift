@@ -1,7 +1,16 @@
 # snowdrift
+
+[![Supported Python Versions](https://badges.ws/pypi/python/twscrape.svg)](https://devguide.python.org/versions/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI Package Version](https://badge.fury.io/py/snowdrift.svg)](https://pypi.org/project/snowdrift)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xann16/snowdrift/graphs/commit-activity)
+[![Github Actions Status](https://github.com/xann16/snowdrift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/xann16/snowdrift/actions/workflows/ci.yml)
+[![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
+
+---
+
 Python package for generating optimized settings handlers (especially for HPC use) in C++ and other languages.
 
-[![Coverage Status](https://codecov.io/gh/xann16/snowdrift/branch/main/graph/badge.svg)](https://app.codecov.io/gh/xann16/snowdrift)
 
 # IMPORTANT - Project in Initial Development
 

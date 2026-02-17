@@ -8,8 +8,8 @@ jobs:
   url-check:
     name: URL checks
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+#    permissions:
+#      contents: read
     steps:
 
       - name: Checkout project code
@@ -25,3 +25,13 @@ jobs:
           verbose: true
           timeout: 7
           retry_count: 3
+
+  codeql-analysis:
+    name: CodeQL analysis
+    uses: actions/reusable-workflows/.github/workflows/codeql-analysis.yml@main
+    with:
+      languages: '["python","actions"]'
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
