@@ -16,6 +16,7 @@ classifiers = [
   "Intended Audience :: Science/Research",
   "License :: OSI Approved :: MIT License",
   "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
@@ -24,6 +25,7 @@ classifiers = [
   "Topic :: Software Development :: Code Generators",
   "Typing :: Typed"
 ]
+
 keywords = [
     "Code Generation",
     "Settings",
@@ -58,7 +60,7 @@ style = "semver"
 bump = true
 
 [tool.uv]
-cache-keys = [{ file = "pyproject.toml" }, { git = { commit = true, tags = true }}] # make cache aware of dynamic versioning
+cache-keys = [{ file = "pyproject.toml" }, { git = { commit = true, tags = true }}]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/snowdrift"]
@@ -143,7 +145,7 @@ extend-select = [
     "TC",   # Flake8-type-checking - proper import of typing in type checks
     "ARG",  # Flake8-unused-arguments - flags unused function arguments
     "PTH",  # Flake8-use-pathlib - encourages pathlib over os.path
-    # "T20",  # Flake8-print - disallows print statements (optional)
+    # "T20",  # Flake8-print - disallows print statements
     # === Pylint-based checks === #
     "PLC",  # Pylint-convention - Pylint checks for conventions
     "PLE",  # Pylint-error - Pylint checks for more severe errors
