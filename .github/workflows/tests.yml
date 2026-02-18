@@ -42,14 +42,14 @@ jobs:
       - name: Upload coverage reports to Codecov.io
         uses: codecov/codecov-action@v5
         with:
-          flags: ${{ matrix.platform}},py${{ matrix.python-version }}
+          flags: ${{ matrix.platform }}-py${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
         uses: codecov/codecov-action@v5
         with:
-          env_vars: OS,PYTHON
           report_type: test_results
+          flags: ${{ matrix.platform }}-py${{ matrix.python-version }}
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
