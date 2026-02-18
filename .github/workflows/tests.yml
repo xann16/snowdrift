@@ -23,7 +23,7 @@ jobs:
     steps:
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -52,10 +52,7 @@ jobs:
 
       - name: Merge test result files into a single one
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
-        run: |
-          echo "from junitparser import Xml\\nres = Xml.fromfile('junit-st.xml')\\nres += Xml.fromfile('junit-ut.xml')\\nres.write(file_or_filename='junit.xml')\\n" > junit_merge.py
-          uv run --with junitparser junit_merge.py
-        shell: bash
+        run: uv run --with junitparser python3 -c "from junitparser import Xml;res = Xml.fromfile('junit-st.xml');res += Xml.fromfile('junit-ut.xml');res.write(file_or_filename='junit.xml')"
 
       - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}

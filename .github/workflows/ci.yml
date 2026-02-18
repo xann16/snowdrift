@@ -38,9 +38,7 @@ jobs:
   publish:
     name: pub
     needs: [ tests, extra-checks ]
-    if: |
-      github.repository == 'xann16/snowdrift' &&
-      ( github.event_name == 'release' || github.ref == 'refs/heads/main' )
+    if: github.repository == 'xann16/snowdrift' && github.event_name == 'release'
     uses: ./.github/workflows/publish.yml
     permissions:
       contents: read
