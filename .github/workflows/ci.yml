@@ -51,7 +51,7 @@ jobs:
     name: docs
     needs: publish
     if: |
-      always() &&
+      !cancelled() &&
       ( ( github.event_name == 'release' && needs.publish.result == 'success' ) ||
         ( github.ref == 'refs/heads/main' && ( needs.publish.result == 'success' || needs.publish.result == 'skipped' ) ) )
     uses: ./.github/workflows/docs.yml

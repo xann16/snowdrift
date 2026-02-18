@@ -7,6 +7,7 @@ repos:
   hooks:
     - id: trailing-whitespace
     - id: end-of-file-fixer
+    - id: mixed-line-ending
     - id: debug-statements
     - id: check-illegal-windows-names
     - id: check-merge-conflict
@@ -40,3 +41,8 @@ repos:
     - id: deptry
       stages: [ manual ] # requires venv (i.e. run using uv), so it is not convenient as actual hook
       args: [ --extend-exclude, conftest.py ]
+- repo: https://github.com/lk16/detect-missing-init
+  rev: v0.1.6
+  hooks:
+    - id: detect-missing-init
+      args: ['--create', "--track", "--python-folders", "src/snowdrift"]
