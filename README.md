@@ -1,8 +1,8 @@
 # snowdrift
 
-[![Supported Python Versions](https://badges.ws/pypi/python/snowdrift.svg)](https://devguide.python.org/versions/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/fluidfft.svg)](https://devguide.python.org/versions/)
 [![License](https://badges.ws/github/l/xann16/snowdrift.svg)](https://opensource.org/licenses/MIT)
-[![Documentation](https://img.shields.io/docs-up-down-blue-red/http/xann16.github.io/snowdrift.svg)](https://xann16.github.io/snowdrift/)
+[![Documentation](https://img.shields.io/docs-wip.svg)](https://xann16.github.io/snowdrift/)
 [![Development Status](https://badges.ws/pypi/status/snowdrift.svg)](https://github.com/xann16/snowdrift)
 [![PyPI Package Version](https://badge.fury.io/py/snowdrift.svg)](https://pypi.org/project/snowdrift)
 [![Maintenance Status](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/xann16/snowdrift/graphs/commit-activity)

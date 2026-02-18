@@ -24,10 +24,10 @@ jobs:
       - name: Build package
         run: uv build --no-sources
 
-      - name: Run smoke tests (wheel)
+      - name: Run smoke tests (from wheel)
         run: uv run --isolated --no-project --with dist/*.whl pytest tests/smoke/*.py
 
-      - name: Run smoke tests (source distribution)
+      - name: Run smoke tests (from source distribution)
         run: uv run --isolated --no-project --with dist/*.tar.gz pytest tests/smoke/*.py
 
       - name: Publish to PyPI
