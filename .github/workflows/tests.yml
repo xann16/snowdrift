@@ -36,18 +36,19 @@ jobs:
         run: uv run --frozen pytest tests/ --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
       - name: Run codeblocks and doctests
-        run: uv run --frozen pytest --durations=10
+        run: uv run --frozen pytest --ignore=tests/ --durations=10
 
       - name: Upload coverage reports to Codecov.io
         uses: codecov/codecov-action@v5
         with:
-          env-vars: OS,PYTHON
+          env_vars: OS,PYTHON
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
         uses: codecov/codecov-action@v5
         with:
+          env_vars: OS,PYTHON
           report_type: test_results
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
