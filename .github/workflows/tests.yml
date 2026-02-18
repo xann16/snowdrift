@@ -36,7 +36,7 @@ jobs:
         run: uv run --frozen pytest tests/ --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
       - name: Run codeblocks and doctests
-        run: uv run --frozen pytest --ignore=tests/ --durations=10
+        run: uv run --frozen pytest --ignore=tests/smoke --ignore=tests/unit/ --durations=10
 
       - name: Upload coverage reports to Codecov.io
         uses: codecov/codecov-action@v5
