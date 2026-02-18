@@ -47,7 +47,7 @@ jobs:
 
   docs:
     name: docs
-    needs: publish
+    needs: [ tests, extra-checks, publish ]
     if: |
       !cancelled() &&
       ( ( github.event_name == 'release' && needs.publish.result == 'success' ) ||

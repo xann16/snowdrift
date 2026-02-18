@@ -52,7 +52,7 @@ jobs:
 
       - name: Merge test result files into a single one
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
-        run: uv run --with junitparser python3 -c "from junitparser import Xml;res = Xml.fromfile('junit-st.xml');res += Xml.fromfile('junit-ut.xml');res.write(file_or_filename='junit.xml')"
+        run: uv run --with junitparser python3 -c "from junitparser import JUnitXml;res = JUnitXml.fromfile('junit-st.xml');res += JUnitXml.fromfile('junit-ut.xml');res.write(file_or_filename='junit.xml')"
 
       - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
