@@ -1,0 +1,6 @@
+snowdrift.breeze.stub.hello
+===========================
+
+.. currentmodule:: snowdrift.breeze.stub
+
+.. autofunction:: hello

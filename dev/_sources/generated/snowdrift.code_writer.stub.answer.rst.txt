@@ -1,0 +1,6 @@
+snowdrift.code\_writer.stub.answer
+==================================
+
+.. currentmodule:: snowdrift.code_writer.stub
+
+.. autofunction:: answer

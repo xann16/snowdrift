@@ -1,0 +1,37 @@
+snowdrift.breeze.stub
+=====================
+
+.. automodule:: snowdrift.breeze.stub
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+   
+      hello
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+   
+      AnswerBox
+   
+   
+
+   
+   
+   
+
+
+
