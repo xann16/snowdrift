@@ -50,6 +50,5 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           report_type: test_results
-          flags: ${{ matrix.platform }}-py${{ matrix.python-version }}
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}

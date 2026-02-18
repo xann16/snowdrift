@@ -29,6 +29,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',  # creates .nojekyll in the output to discover static assets
+    'sphinx.ext.todo'
 ]
 
 templates_path = ['_templates']
@@ -39,6 +40,8 @@ autosummary_generate = True
 autodoc_default_options = {'show-inheritance': None}
 autodoc_member_order = 'bysource'
 autodoc_typehints = 'description'
+
+todo_include_todos = True
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
