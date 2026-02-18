@@ -25,6 +25,7 @@ jobs:
     uses: ./.github/workflows/tests.yml
     permissions:
       contents: read
+    secrets: inherit
 
   extra-checks:
     name: extra
@@ -47,7 +48,7 @@ jobs:
 
   docs:
     name: docs
-    needs: [ tests, extra-checks, publish ]
+    needs: publish
     if: |
       !cancelled() &&
       ( ( github.event_name == 'release' && needs.publish.result == 'success' ) ||

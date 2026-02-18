@@ -32,32 +32,22 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Run smoke tests with code coverage
-        run: uv run --frozen pytest tests/smoke/ --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit-st.xml -o junit_family=legacy
-        continue-on-error: true
-
-      - name: Run unit tests with code coverage
-        run: uv run --frozen pytest tests/unit/ --durations=10 --cov=src/snowdrift --cov-report=xml --cov-append --junitxml=junit-ut.xml -o junit_family=legacy
-        continue-on-error: true
+      - name: Run tests with code coverage
+        run: uv run --frozen pytest tests/ --durations=10 --cov=src/snowdrift --cov-report=xml --junitxml=junit.xml -o junit_family=legacy
 
       - name: Run codeblocks and doctests
         run: uv run --frozen pytest --durations=10
-        continue-on-error: true
 
       - name: Upload coverage reports to Codecov.io
-        if:  ${{ success() && matrix.platform == 'ubuntu-latest' && matrix.python-version == '3.14' }}
         uses: codecov/codecov-action@v5
         with:
+          env-vars: OS,PYTHON
           token: ${{ secrets.CODECOV_TOKEN }}
-
-      - name: Merge test result files into a single one
-        if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
-        run: uv run --with junitparser python3 -c "from junitparser import JUnitXml;res = JUnitXml.fromfile('junit-st.xml');res += JUnitXml.fromfile('junit-ut.xml');res.write(file_or_filename='junit.xml')"
 
       - name: Upload test results to Codecov.io
         if: ${{ !cancelled() && !github.event.pull_request.head.repo.fork && github.repository_owner == 'xann16' }}
         uses: codecov/codecov-action@v5
         with:
           report_type: test_results
-          token: ${{ secrets.CODECOV_TOKEN }}
           name: sd_${{ matrix.platform }}_py${{ matrix.python-version }}
+          token: ${{ secrets.CODECOV_TOKEN }}
