@@ -23,3 +23,7 @@ TODO: Add installation instructions here.
 
    >>> 10
    10
+
+.. todo::
+
+   Update docs

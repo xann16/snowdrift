@@ -19,7 +19,11 @@ sys.path.insert(0, os.path.abspath('../../src/snowdrift'))
 project = 'snowdrift'
 copyright = '2026, Maciej Manna'
 author = 'Maciej Manna'
+
+version = '.'.join(snowdrift.__version__.split('.')[:3])
 release = snowdrift.__version__
+
+pygments_style = 'sphinx'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
