@@ -25,6 +25,7 @@ jobs:
         run: uv run sphinx-build -M html docs/source/ docs/build/
 
       - name: Provide redirection from dev on fresh release deployment
+        if: ${{ github.event_name == 'release' }}
         run: |
           mkdir docs/build/html/dev
           cp docs/source/utils/redirect.html docs/build/html/dev/index.html
