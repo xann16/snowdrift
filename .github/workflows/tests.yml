@@ -39,16 +39,10 @@ jobs:
       - name: Run codeblocks and doctests
         run: uv run --frozen pytest --ignore=tests/smoke --ignore=tests/unit/ --durations=10
 
-      - name: Prepare environment variables for Codecov.io
-        run: |
-           echo "PYTHON=py${{ steps.dep-setup.outputs.python-version }}" >> $GITHUB_ENV
-           echo "OS=$OS"
-           echo "PYTHON=$PYTHON"
-
       - name: Upload coverage reports to Codecov.io
         uses: codecov/codecov-action@v5
         with:
-          env_vars: OS,PYTHON
+          flags: ${{ matrix.platform}},py${{ matrix.python-version }}
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Upload test results to Codecov.io
